@@ -9,11 +9,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build()
+    @recipe.ingredients.build(name: "one")
+    @recipe.ingredients.build(name: "two")
   end
 
   def create
     @recipe = Recipe.create(recipe_params)
+    redirect_to recipes_path
   end
 
   private
